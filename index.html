@@ -3,114 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>El Charro: Cultural Identity & Art</title>
+    <title>El Charro | Empathy Studios Learning</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
     <style>
-        /* ES Colour Palette */
+        /* Empathy Studios Brand Palette */
         :root {
-            --primary-white: #F1F1F1;
-            --primary-black: #171D1A;
-            --secondary-blue: #008ED4;
-            --secondary-pink: #FF68C8;
-            --secondary-green: #42D39F;
+            --brand-white: #F1F1F1;
+            --brand-black: #171D1A;
+            --brand-blue: #008ED4;
+            --brand-pink: #FF68C8;
+            --brand-green: #42D39F;
+            --card-radius: 16px;
         }
 
         body { 
-            font-family: 'Inter', -apple-system, sans-serif; 
-            line-height: 1.7; 
-            color: var(--primary-black); 
-            background-color: var(--primary-white);
-            margin: 0;
-            padding: 0;
+            font-family: 'Inter', sans-serif; 
+            line-height: 1.6; 
+            color: var(--brand-black); 
+            background-color: var(--brand-white);
+            margin: 0; padding: 0;
         }
 
-        .container { max-width: 850px; margin: 0 auto; padding: 40px 20px; }
+        .container { max-width: 900px; margin: 0 auto; padding: 60px 20px; }
 
-        header { border-bottom: 8px solid var(--secondary-green); padding-bottom: 30px; margin-bottom: 30px; text-align: center; }
-        h1 { font-size: 3.2em; text-transform: uppercase; margin: 0; letter-spacing: -1px; }
-        .highlight-green { color: var(--secondary-green); }
+        /* --- Global Header & Clear Overview --- */
+        header { 
+            text-align: left; 
+            margin-bottom: 40px;
+            border-left: 8px solid var(--brand-green);
+            padding-left: 25px;
+        }
 
-        /* --- Video Embed Styling --- */
+        h1 { font-size: 3.5rem; font-weight: 800; text-transform: uppercase; margin: 0; letter-spacing: -2px; line-height: 0.9; }
+        .overview-box { 
+            font-size: 1.1rem; 
+            background: white; 
+            padding: 30px; 
+            border-radius: var(--card-radius); 
+            margin-bottom: 40px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        /* --- Differentiation Toggle (Support Levels) --- */
+        .support-nav {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: #e9e9e9;
+            padding: 10px 20px;
+            border-radius: 50px;
+            margin-bottom: 30px;
+            width: fit-content;
+        }
+
+        .support-btn {
+            padding: 8px 18px;
+            border-radius: 25px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            background: white;
+            transition: 0.3s;
+        }
+
+        .support-btn.active { background: var(--brand-green); color: var(--brand-black); }
+
+        /* --- Video --- */
         .video-wrapper {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
-            margin-bottom: 50px;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border-radius: var(--card-radius);
             background: #000;
+            margin-bottom: 60px;
+        }
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+        /* --- Differentiated Content Area --- */
+        .lesson-card {
+            background: white;
+            padding: 40px;
+            border-radius: var(--card-radius);
+            margin-bottom: 80px;
+            border-top: 6px solid var(--brand-blue);
         }
 
-        .video-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
-        /* --- Content Styling --- */
-        .section { margin-bottom: 60px; }
-        h2 { background: var(--primary-black); color: var(--primary-white); padding: 8px 20px; display: inline-block; border-radius: 4px; font-size: 1.1em; text-transform: uppercase; }
-        
-        .intro-quote { 
-            font-size: 1.5em; 
-            font-weight: 700; 
-            text-align: center; 
-            margin: 40px 0; 
-            padding: 30px; 
-            border: 4px solid var(--secondary-blue); 
-            border-radius: 12px; 
-            background: white; 
-        }
-
-        /* --- Quiz/Feedback Section --- */
-        .feedback-wrapper {
-            background-color: var(--primary-black);
+        /* --- Reflection Section (Dark) --- */
+        .reflection-block {
+            background: var(--brand-black);
             padding: 80px 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            border-radius: 40px 40px 0 0;
         }
 
-        .feedback-card {
-            background: #fff;
-            width: 100%;
-            max-width: 550px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        .card-white {
+            background: white;
+            max-width: 600px;
+            margin: 0 auto;
+            border-radius: var(--card-radius);
             overflow: hidden;
+            padding: 40px;
         }
 
-        .card-header { padding: 20px; border-bottom: 3px solid var(--secondary-blue); font-weight: bold; text-transform: uppercase; }
-        .card-body { padding: 30px; }
-        .step-label { font-size: 1.4em; font-weight: bold; margin-bottom: 20px; }
-        
-        textarea {
-            width: 100%;
-            height: 120px;
-            padding: 15px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            font-family: inherit;
-            resize: none;
-            margin-top: 15px;
-            box-sizing: border-box;
-        }
-
-        .card-footer { padding: 20px; background: #fafafa; display: flex; justify-content: space-between; align-items: center; }
-
-        .btn-next {
-            background: var(--secondary-green);
-            color: var(--primary-black);
-            border: none;
-            padding: 10px 25px;
-            border-radius: 5px;
-            font-weight: bold;
-            text-transform: uppercase;
-            cursor: pointer;
-        }
+        textarea { width: 100%; height: 120px; border: 2px solid #eee; border-radius: 12px; padding: 15px; margin: 20px 0; font-family: inherit; box-sizing: border-box; }
+        .btn-main { background: var(--brand-black); color: white; padding: 12px 30px; border-radius: 50px; border: none; font-weight: 700; text-transform: uppercase; cursor: pointer; }
 
         .hidden { display: none; }
     </style>
@@ -119,76 +116,75 @@
 
 <div class="container">
     <header>
-        <h1>EL <span class="highlight-green">CHARRO</span></h1>
-        <p><strong>A Film Study on Art, Identity, and Culture</strong></p>
+        <h1>EL CHARRO</h1>
+        <div style="color:var(--brand-blue); font-weight: bold; margin-top: 10px;">EMPATHY STUDIOS | STUDENT RESOURCE</div>
     </header>
 
+    <div class="overview-box">
+        <strong>Overview:</strong> Explore the concept of "the spark"—your unique identity. Through the story of El Charro, a cultural ambassador from Mexico, we analyze how tradition, art, and love help us express who we truly are to the world.
+    </div>
+
+    <div class="support-nav">
+        <span style="font-size: 0.8rem; font-weight: 800; text-transform: uppercase;">Support Level:</span>
+        <button class="support-btn active" onclick="setSupport('standard')">Standard</button>
+        <button class="support-btn" onclick="setSupport('extra')">Extra Support</button>
+    </div>
+
     <div class="video-wrapper">
-        <iframe src="https://player.vimeo.com/video/993710638?h=2659e0805a&badge=0&autopause=0&player_id=0&app_id=58479" 
-                allow="autoplay; fullscreen; picture-in-picture" 
-                allowfullscreen 
-                title="El Charro"></iframe>
+        <iframe src="https://player.vimeo.com/video/993710638?h=2659e0805a" allowfullscreen></iframe>
     </div>
 
-    <div class="intro-quote">
-        "El Charro is three things together: Mexico, art, and love."
-    </div>
-
-    <section class="section">
-        <h2>Celebrating Culture</h2>
-        <p>El Charro describes himself as a cultural <strong>ambassador</strong>. He explains that traditions like the Day of the Dead are not scary or taboo, but a ritual of <strong>gratitude</strong> for those who came before us.</p>
-    </section>
-
-    <section class="section">
-        <h2>The Individual Spark</h2>
-        <p>The film encourages us to recognize that "who we are belongs to us." El Charro believes everyone has a unique <strong>spark</strong>, and it is our choice whether to express it to the world.</p>
-    </section>
-</div>
-
-<div class="feedback-wrapper">
-    <div class="feedback-card">
-        <div class="card-header">Student Feedback</div>
-
-        <div id="step-1" class="card-body">
-            <div class="step-label">1. <span style="color:var(--secondary-pink)">Before</span> watching:</div>
-            <p>How do you feel about your connection to your own culture?</p>
-            <textarea placeholder="Write your thoughts..."></textarea>
+    <div class="lesson-card">
+        <div id="content-standard">
+            <h2 style="text-transform: uppercase; letter-spacing: -1px;">Analyzing Identity</h2>
+            <p>El Charro acts as an <strong>ambassador</strong>, using his character to bridge the gap between tradition and modern art. He explains that his "ritual" of transformation allows him to be "more human."</p>
+            <p>Consider how his choice to embrace his culture serves as a message of <strong>universal love</strong>.</p>
         </div>
 
-        <div id="step-2" class="card-body hidden">
-            <div class="step-label">2. <span style="color:var(--secondary-green)">After</span> watching:</div>
-            <p>How do you feel about expressing your own "spark" today?</p>
-            <textarea placeholder="Write your reflection..."></textarea>
-        </div>
-
-        <div class="card-footer">
-            <span id="step-count">1 of 2 Questions</span>
-            <button class="btn-next" onclick="nextQuestion()" id="next-btn">Next Que</button>
+        <div id="content-extra" class="hidden">
+            <h2 style="text-transform: uppercase; letter-spacing: -1px; color: var(--brand-pink);">Key Ideas to Help You</h2>
+            <ul style="padding-left: 20px;">
+                <li><strong>Ambassador:</strong> A person who represents their country or culture.</li>
+                <li><strong>The Spark:</strong> The special thing that makes you "you".</li>
+                <li><strong>The Choice:</strong> El Charro says we choose whether to show our spark or hide it because of fear.</li>
+            </ul>
+            <p><em>Focus on how El Charro feels when he wears his costume and how he uses it to show love.</em></p>
         </div>
     </div>
 </div>
 
-<div class="container">
-    <footer style="text-align:center; padding: 40px 0; color: #888;">
-        <p>&copy; 2026 Film Learning Resource &bull; "No one can be you."</p>
-    </footer>
+<div class="reflection-block">
+    <div class="card-white">
+        <h3 id="step-title">1. Reflection Step</h3>
+        <p id="step-desc">How do you currently feel about your connection to your own culture and identity?</p>
+        <textarea placeholder="Start typing..."></textarea>
+        <button class="btn-main" onclick="nextStep()">Next Question</button>
+    </div>
 </div>
 
 <script>
-    function nextQuestion() {
-        const step1 = document.getElementById('step-1');
-        const step2 = document.getElementById('step-2');
-        const btn = document.getElementById('next-btn');
-        const count = document.getElementById('step-count');
-
-        if (!step1.classList.contains('hidden')) {
-            step1.classList.add('hidden');
-            step2.classList.remove('hidden');
-            btn.innerText = "Finish";
-            count.innerText = "2 of 2 Questions";
+    function setSupport(level) {
+        const std = document.getElementById('content-standard');
+        const extra = document.getElementById('content-extra');
+        const btns = document.querySelectorAll('.support-btn');
+        
+        btns.forEach(b => b.classList.remove('active'));
+        
+        if(level === 'extra') {
+            std.classList.add('hidden');
+            extra.classList.remove('hidden');
+            btns[1].classList.add('active');
         } else {
-            alert("Thank you for your feedback!");
+            extra.classList.add('hidden');
+            std.classList.remove('hidden');
+            btns[0].classList.add('active');
         }
+    }
+
+    function nextStep() {
+        document.getElementById('step-title').innerText = "2. The Choice";
+        document.getElementById('step-desc').innerText = "El Charro says 'who we are belongs to us.' What is one thing you can do to show your 'spark' today?";
+        document.querySelector('textarea').value = "";
     }
 </script>
 
